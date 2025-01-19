@@ -9,19 +9,19 @@
           <table class="w-full border-collapse border border-gray-300">
             <thead>
               <tr class="bg-gray-200">
-                <th class="border border-gray-300 px-4 py-2">No</th>
-                <th class="border border-gray-300 px-4 py-2">Car</th>
-                <th class="border border-gray-300 px-4 py-2">License Plate</th>
-                <th class="border border-gray-300 px-4 py-2">Start Date</th>
-                <th class="border border-gray-300 px-4 py-2">End Date</th>
-                <th class="border border-gray-300 px-4 py-2">Total Days</th>
-                <th class="border border-gray-300 px-4 py-2">Price</th>
-                <th class="border border-gray-300 px-4 py-2">Owner</th>
-                <th class="border border-gray-300 px-4 py-2">Status</th>
-                <th class="border border-gray-300 px-4 py-2">Actions</th>
+                <th class="border border-gray-300 px-4 py-2">No.</th>
+                <th class="border border-gray-300 px-4 py-2">Vehicle</th>
+                <th class="border border-gray-300 px-4 py-2">License Plate No.</th>
+                <th class="border border-gray-300 px-4 py-2">Rental Start Date</th>
+                <th class="border border-gray-300 px-4 py-2">Rental End Date</th>
+                <th class="border border-gray-300 px-4 py-2">Duration (Days)</th>
+                <th class="border border-gray-300 px-4 py-2">Total Price</th>
+                <th class="border border-gray-300 px-4 py-2">Vehicle Owner</th>
+                <th class="border border-gray-300 px-4 py-2">Rental Status</th>
+                <th class="border border-gray-300 px-4 py-2">Operations</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody v-if="rentals.length">
               <tr v-for="(rental, index) in rentals" :key="rental.id">
                 <td class="border border-gray-300 px-4 py-2">{{ index + 1 }}</td>
                 <td class="border border-gray-300 px-4 py-2">
@@ -58,9 +58,14 @@
                     }"
                     class="px-4 py-2 rounded-lg transition duration-300"
                   >
-                    Return
+                    Return Vehicle
                   </button>
                 </td>
+              </tr>
+            </tbody>
+            <tbody v-else>
+              <tr>
+                <td colspan="10" class="text-center py-3">No Data Available</td>
               </tr>
             </tbody>
           </table>

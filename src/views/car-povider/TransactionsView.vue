@@ -20,7 +20,7 @@
                 <th class="border border-gray-300 px-4 py-2">Status</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody v-if="rentals.length">
               <tr v-for="(rental, index) in rentals" :key="rental.id">
                 <td class="border border-gray-300 px-4 py-2">{{ index + 1 }}</td>
                 <td class="border border-gray-300 px-4 py-2">
@@ -45,6 +45,11 @@
                     {{ rental.status }}
                   </div>
                 </td>
+              </tr>
+            </tbody>
+            <tbody v-else>
+              <tr>
+                <td colspan="10" class="text-center py-3">No Data Available</td>
               </tr>
             </tbody>
           </table>
